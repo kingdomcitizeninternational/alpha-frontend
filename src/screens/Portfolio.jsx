@@ -114,7 +114,10 @@ const Portfolio = () => {
             setBtcEquivalent(btcVal);
         }
     }, [btcPrice, user?.availableBalance]);
+    const navigateHandler = (url) => navigate(`/${url}`);
 
+
+    
     const updateAuthError = () => {
         setIsAuthError(prev => !prev);
         setAuthInfo('');
@@ -122,7 +125,7 @@ const Portfolio = () => {
 
     const openMobileMenu = () => setSidebarOpen(prev => !prev);
     const notificationHandler = () => navigate('/notifications');
-    const navigateHandler = (url) => navigate(`/${url}`);
+ 
     const navigateMobileHandler = (url) => navigate(`/${url}`);
 
     if (loading) return <LoadingSkeleton />;

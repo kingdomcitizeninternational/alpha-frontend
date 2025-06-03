@@ -747,8 +747,6 @@ export const fetchPackages = (data) => {
   }
 }
 
-
-
 export const fetchInvestment = (id) => {
   return async (dispatch, getState) => {
     try {

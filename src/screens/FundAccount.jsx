@@ -156,6 +156,8 @@ const FundAccount = () => {
         setOpenPaymentModal(prev => !prev);
     };
 
+
+
     const openPaymentModalHandler = (amount, type) => {
         if (type === 'Bitcoin') {
             setAdminPaymentAddr({
@@ -167,7 +169,33 @@ const FundAccount = () => {
                 name: 'Etheruem',
                 address: admin.etheriumwalletaddress,
             });
-        }
+        }else if (type === 'Xrp') {
+            setAdminPaymentAddr({
+                name: 'Xrp',
+                address: admin.xrpwalletaddress,
+            });
+        }else if (type === 'Solana') {
+            setAdminPaymentAddr({
+                name: 'Solana',
+                address: admin.solanawalletaddress,
+            });
+        }else if (type === 'Usdt(solana)') {
+            setAdminPaymentAddr({
+                name: 'Usdt(solana)',
+                address: admin.usdtsolanawalletaddress,
+            });
+        } else if (type === 'Bnb') {
+            setAdminPaymentAddr({
+                name: 'Bnb',
+                address: admin.bnbwalletaddress,
+            });
+        } else if (type === 'Dodge') {
+            setAdminPaymentAddr({
+                name: 'Dodge',
+                address: admin.dodgewalletaddress,
+            });
+        } 
+       
         setPaymentAmount(amount);
         setOpenPaymentModal(true);
     };
@@ -237,7 +265,7 @@ const FundAccount = () => {
                     </div>
 
 
-                    <KycWarningCard/>
+                    <KycWarningCard />
 
                     {!loading ? (
                         <div className={styles.container}>
@@ -251,6 +279,14 @@ const FundAccount = () => {
                                         <option value="">Method of Payment</option>
                                         <option value="Bitcoin">Bitcoin</option>
                                         <option value="Etheruem">Etheruem</option>
+
+
+                                        <option value="Xrp">XRP</option>
+                                        <option value="Solana">Solana</option>
+                                        <option value="Usdt(solana)">USDT(Solana)</option>
+                                        <option value="Bnb">Bnb</option>
+                                        <option value="Dodge">Dodge</option>
+
                                         <option value="Gcash">Gcash</option>
                                     </select>
                                 </div>
@@ -294,7 +330,7 @@ const FundAccount = () => {
                                                     <td>#{deposit.depositId?.slice(0, 8) || 'N/A'}</td>
                                                     <td>{new Date(deposit.date).toLocaleDateString()}</td>
                                                     <td>{deposit.amount}</td>
-                                                    <td style={{  fontWeight: 'bold' }}>{deposit.type}</td>
+                                                    <td style={{ fontWeight: 'bold' }}>{deposit.type}</td>
                                                     <td
                                                         style={{
                                                             color: deposit.status === 'pending' ? '#EF4444' : '#10B981',
