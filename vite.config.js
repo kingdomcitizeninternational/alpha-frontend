@@ -9,8 +9,13 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
-      registerType: 'autoUpdate',
-      includeAssets: ['icons/*', 'apple-touch-icon.png', 'favicon.ico'],
+      registerType: 'autoUpdate', // Auto service worker updates
+      includeAssets: [
+        'icons/icon-192x192.png',
+        'icons/icon-512x512.png',
+        'apple-touch-icon.png',
+        'favicon.ico'
+      ],
       manifest: {
         name: 'Alphagainmetrics',
         short_name: 'AGM',
@@ -24,28 +29,28 @@ export default defineConfig({
           {
             src: 'icons/icon-192x192.png',
             sizes: '192x192',
-            type: 'image/png',
+            type: 'image/png'
+          },
+          {
+            src: 'icons/icon-512x512.png',
+            sizes: '512x512',
+            type: 'image/png'
           },
           {
             src: 'icons/icon-512x512.png',
             sizes: '512x512',
             type: 'image/png',
-          },
-          {
-            src: 'icons/icon-512x512.png',
-            sizes: '512x512',
-            type: 'image/png',
-            purpose: 'any maskable',
-          },
-        ],
+            purpose: 'any maskable'
+          }
+        ]
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,json}']
       },
       devOptions: {
-        enabled: true,
-      },
-    }),
+        enabled: true // Allows testing in development mode
+      }
+    })
   ],
   resolve: {
     alias: {
@@ -55,12 +60,12 @@ export default defineConfig({
       assert: 'assert',
       buffer: 'buffer',
       util: 'util',
-      path: 'path-browserify',
-    },
+      path: 'path-browserify'
+    }
   },
   define: {
-    'process.env': {}, // prevents "process is not defined" error
-    global: 'globalThis',
+    'process.env': {},
+    global: 'globalThis'
   },
   optimizeDeps: {
     include: [
@@ -69,27 +74,27 @@ export default defineConfig({
       'buffer',
       'process',
       'util',
-      'stream-browserify',
+      'stream-browserify'
     ],
     esbuildOptions: {
       define: {
-        global: 'globalThis',
+        global: 'globalThis'
       },
       plugins: [
         NodeGlobalsPolyfillPlugin({
           process: true,
-          buffer: true,
+          buffer: true
         }),
-        NodeModulesPolyfillPlugin(),
-      ],
-    },
+        NodeModulesPolyfillPlugin()
+      ]
+    }
   },
   build: {
     commonjsOptions: {
-      transformMixedEsModules: true,
+      transformMixedEsModules: true
     },
     rollupOptions: {
-      plugins: [rollupNodePolyFill()],
-    },
-  },
+      plugins: [rollupNodePolyFill()]
+    }
+  }
 });
