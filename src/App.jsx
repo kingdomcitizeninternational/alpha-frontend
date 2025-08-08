@@ -116,7 +116,6 @@ function App() {
 
         </Routes>
       </Suspense>
-      <InstallBanner />
 
 
       {/* ✅ Toast container must be present for toasts to show */}
