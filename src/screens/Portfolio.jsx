@@ -231,7 +231,7 @@ const Portfolio = () => {
                                     <div className={styles.section}>
                                         <p className={styles.label}>Investment Plan</p>
                                         <div className={styles.planBox}>
-                                            <span className={styles.planName}>{investment?.isActive ? investment?.name : '---'}</span>
+                                            <span className={styles.planName}>{investment?.isActive ? investment?.investmentPlan : '---'}</span>
                                         </div>
                                     </div>
 

@@ -36,7 +36,6 @@ const styles = {
   },
   message: {
     fontSize: '14px',
-    color: '#555',
     color:'#fff'
   },
 };

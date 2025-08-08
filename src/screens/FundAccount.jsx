@@ -200,9 +200,19 @@ const FundAccount = () => {
         setOpenPaymentModal(true);
     };
 
+
+
+
+
+
+
+
     const navigateMobileHandler = (url) => {
         return navigate(`/${url}`);
     };
+
+
+    
 
     return (
         <>
@@ -279,8 +289,6 @@ const FundAccount = () => {
                                         <option value="">Method of Payment</option>
                                         <option value="Bitcoin">Bitcoin</option>
                                         <option value="Etheruem">Etheruem</option>
-
-
                                         <option value="Xrp">XRP</option>
                                         <option value="Solana">Solana</option>
                                         <option value="Usdt(solana)">USDT(Solana)</option>
